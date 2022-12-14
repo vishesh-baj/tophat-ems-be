@@ -1,8 +1,5 @@
-const express = require('express')
-const router = express.Router()
 const Register = require('../model/Schema/register')
 const bcrypt = require('bcryptjs')
-const asyncHandler = require('express-async-handler')
 
 const registerControllers = async(req,res)=>{
     const {name,email,password} = req.body;

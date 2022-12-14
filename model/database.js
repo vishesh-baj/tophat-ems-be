@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-mongoose.connect("mongodb+srv://tophat:tophat@cluster0.5bvgqom.mongodb.net/ems?retryWrites=true&w=majority",(error,result)=>{
+mongoose.connect(process.env.MONGO_URI,(error,result)=>{
     if(error){
         console.log(error)
     }else{
