@@ -13,7 +13,7 @@ require('./model/database')
 
 // Sending API request to the controllers
 app.use('/',require('./routes/userRoute'))
-app.use('/dashboard',require('./routes/employeeRoute'))
+app.use('/dashboard',require('./routes/dashboardRoutes'))
 
 // PORT Connectivity
 const PORT = process.env.PORT || 5000;

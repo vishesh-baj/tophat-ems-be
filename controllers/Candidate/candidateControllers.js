@@ -1,4 +1,4 @@
-const Candidate = require("../model/Schema/candidate");
+const Candidate = require("../../model/Schema/candidate");
 
 const candidateControllers = async (req,res)=>{
     const {name,email,contactNumber,technology,yearOfExperience,noticePeriod,communication,status,interviewerName,note} = req.body;
@@ -22,10 +22,17 @@ const candidateControllers = async (req,res)=>{
     const candidateEmail = await Candidate.findOne({email})
     const candidateContactNumber = await Candidate.findOne({contactNumber})
 
-    if(candidateEmail || candidateContactNumber){
+    if(candidateEmail){
         res.status(400)
         return res.json({
-            message:"User already exists"
+            message:"Email already exists"
+        })
+    }
+
+    if(candidateContactNumber){
+        res.status(400)
+        return res.json({
+            message:"Contact Number already exists"
         })
     }
 
