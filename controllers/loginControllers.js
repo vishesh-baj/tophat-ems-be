@@ -31,7 +31,7 @@ const loginControllers = async(req,res)=>{
 
     const userId = user._id.toString()
 
-    const token = jwt.sign({userId},process.env.SECRET_KEY)
+    const token = jwt.sign({userId},process.env.SECRET_KEY,{expiresIn:'1d'})
     res.status(200).json({
         message:"Logged in successfully",
         token
