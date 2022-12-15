@@ -7,13 +7,11 @@ const candidateSchema = mongoose.Schema({
     },
     email:{
         type:String,
-        required:[true,"Please fill the email field"],
-        unique:[true,"Dublicate Email"]
+        required:[true,"Please fill the email field"]
     },
     contactNumber:{
         type:Number,
-        required:[true,"Please fill the contact number field"],
-        unique:[true,"Dublicate phone number"]
+        required:[true,"Please fill the contact number field"]
     },
     technology:{
         type:String,

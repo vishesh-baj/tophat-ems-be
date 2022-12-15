@@ -16,6 +16,7 @@ const secureApi = (req,res,next)=>{
     }
 
     const verifyToken = jwt.verify(token,process.env.SECRET_KEY);
+    
     if(!verifyToken){
         return res.status(400).json({
             message:"Please enter a valid token"
