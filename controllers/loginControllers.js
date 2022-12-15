@@ -6,7 +6,7 @@ const loginControllers = async(req,res)=>{
     const {email,password} = req.body;
 
     if(!email || !password){
-        res.status(400)
+        res.status(203)
         return res.json({
             message:"Please fill the empty fields."
         })
@@ -14,7 +14,7 @@ const loginControllers = async(req,res)=>{
 
     const user = await Register.findOne({email})
     if(!user){
-        res.status(400)
+        res.status(203)
         return res.json({
             message:"User not found, please signup"
         })
@@ -23,7 +23,7 @@ const loginControllers = async(req,res)=>{
     // Check if the password is correct
     const passwordIsCorrect = await bcrypt.compare(password,user.hashedPassword)
     if(!passwordIsCorrect){
-        res.status(400)
+        res.status(203)
         return res.json({
             message:"Invalid Password"
         })

@@ -5,15 +5,14 @@ const registerControllers = async(req,res)=>{
     const {name,email,password} = req.body;
     
     if(!name || !email || !password){
-        res.status(400)
+        res.status(203)
         return res.json({
             message:"Please fill all the fields."
         })
     }
 
     if(password.length < 6){
-        res.status(400)
-        return res.json({
+        return res.status(203).json({
             message:"Password have have atleast 6 characters"
         })
     }
@@ -22,10 +21,9 @@ const registerControllers = async(req,res)=>{
     const userExists = await Register.findOne({email})
 
     if(userExists){
-        res.status(400)
-        return res.json({
-            message:"Email has already been used"
-        })
+       return res.status(203).json({
+        message:"Email has already been used"
+       })
     }
 
     // Hash password
