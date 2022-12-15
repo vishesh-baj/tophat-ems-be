@@ -1,31 +1,29 @@
 const Register = require("../model/Schema/register");
 const bcrypt = require("bcryptjs");
 
-const registerControllers = async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
-
-    if (!name || !email || !password) {
-      res.status(400);
-      return res.json({
-        message: "Please fill all the fields.",
-      });
+const registerControllers = async(req,res)=>{
+    const {name,email,password} = req.body;
+    
+    if(!name || !email || !password){
+        res.status(203)
+        return res.json({
+            message:"Please fill all the fields."
+        })
     }
 
-    if (password.length < 6) {
-      res.status(400);
-      return res.json({
-        message: "Password have have atleast 6 characters",
-      });
+    if(password.length < 6){
+        return res.status(203).json({
+            message:"Password have have atleast 6 characters"
+        })
     }
 
     // Check if the email already exists
     const userExists = await Register.findOne({ email });
 
-    if (userExists) {
-      return res.status(203).json({
-        message: "Email has already been used",
-      });
+    if(userExists){
+       return res.status(203).json({
+        message:"Email has already been used"
+       })
     }
 
     // Hash password

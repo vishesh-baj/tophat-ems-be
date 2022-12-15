@@ -4,7 +4,7 @@ const candidateControllers = async (req,res)=>{
     const {name,email,contactNumber,technology,yearOfExperience,noticePeriod,communication,status,interviewerName,note} = req.body;
 
     if(!name || !email || !contactNumber || !technology){
-        res.status(400)
+        res.status(203)
         return res.json({
             message:"Please fill all the mandatory fields."
         })
@@ -12,7 +12,7 @@ const candidateControllers = async (req,res)=>{
 
     // Contact number check
     if(contactNumber < 10){
-        res.status(400)
+        res.status(203)
         return res.json({
             message:"Contact Number cannot have less than 10 digits."
         })
@@ -23,14 +23,14 @@ const candidateControllers = async (req,res)=>{
     const candidateContactNumber = await Candidate.findOne({contactNumber})
 
     if(candidateEmail){
-        res.status(400)
+        res.status(203)
         return res.json({
             message:"Email already exists"
         })
     }
 
     if(candidateContactNumber){
-        res.status(400)
+        res.status(203)
         return res.json({
             message:"Contact Number already exists"
         })

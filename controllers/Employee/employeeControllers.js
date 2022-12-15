@@ -4,13 +4,13 @@ const employeeControllers = async (req,res)=>{
     const {name,contactNumber,alternativeContactNumber,personalEmail,professionalEmail,address,password} = req.body;
 
     if(!name || !contactNumber || !personalEmail){
-        return res.status(400).json({
+        return res.status(203).json({
             message:"Name, personal Email and conatact number are mandatory"
         })
     }
     
     if(String(contactNumber).length < 10){
-        return res.status(400).json({
+        return res.status(203).json({
             message:"Contact number cannot have less than 10 digits"
         })
     }
@@ -20,13 +20,13 @@ const employeeControllers = async (req,res)=>{
     const employeePEmail = await Employee.findOne({personalEmail})
 
     if(employeeContact){
-        res.status(400).json({
+        res.status(203).json({
             message:"Contact number already exists."
         })
     }
 
     if(employeePEmail){
-        res.status(400).json({
+        res.status(203).json({
             message:"Personal Email already exists."
         })
     }
