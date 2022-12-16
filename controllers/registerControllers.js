@@ -35,9 +35,6 @@ const registerControllers = async(req,res)=>{
     registerData.save();
 
     res.status(200).json({ message: "Account created Successfully !!" });
-  } catch (error) {
-    return res.json({ error: error.message });
   }
-};
 
 module.exports = registerControllers;
