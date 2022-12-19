@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const registerSchema = mongoose.Schema({
+const adminSchema = mongoose.Schema({
     name:{
         type:String,
         required:[true,"Please enter a name"]
@@ -21,6 +21,6 @@ const registerSchema = mongoose.Schema({
     }
 },{timestamps:true})
 
-const Register = mongoose.model("Register",registerSchema)
+const Register = mongoose.model("Admin",adminSchema)
 
 module.exports = Register;

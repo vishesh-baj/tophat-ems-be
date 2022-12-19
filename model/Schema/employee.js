@@ -1,6 +1,9 @@
 const mongoose  = require('mongoose')
 
 const employeeSchema = mongoose.Schema({
+    adminId:{
+        type:String
+    },
     name:{
         type:String,
         required:[true,"Please enter the name field"]
@@ -15,11 +18,12 @@ const employeeSchema = mongoose.Schema({
     },
     personalEmail:{
         type:String,
-        required:[true,"Please enter the personal email"]
+        required:[true,"Please enter the personal email"],
+        unique:true
     },
     professionalEmail:{
         type:String,
-        default:"Not defined"
+        required:[true,"Please enter your professional email"]
     },
     address:{
         type:String,
@@ -27,7 +31,7 @@ const employeeSchema = mongoose.Schema({
     },
     password:{
         type:String,
-        default:"Not defined"
+        default:""
     }
 })
 

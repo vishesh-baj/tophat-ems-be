@@ -1,4 +1,4 @@
-const Register = require("../model/Schema/register");
+const Register = require("../model/Schema/admin");
 const bcrypt = require("bcryptjs");
 
 const registerControllers = async(req,res)=>{

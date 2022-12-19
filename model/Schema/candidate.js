@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
 
 const candidateSchema = mongoose.Schema({
+    adminId:{
+        type:String
+    },
     name:{
         type:String,
         required:[true,"Please fill the name field"]

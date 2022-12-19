@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const Register = require("../model/Schema/register");
+const Register = require("../model/Schema/admin");
 const jwt = require('jsonwebtoken')
 
 const loginControllers = async(req,res)=>{
@@ -34,7 +34,8 @@ const loginControllers = async(req,res)=>{
     const token = jwt.sign({userId},process.env.SECRET_KEY,{expiresIn:'1d'})
     res.status(200).json({
         message:"Logged in successfully",
-        token
+        token,
+        user
     })
 }
 

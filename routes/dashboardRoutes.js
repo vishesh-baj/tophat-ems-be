@@ -10,14 +10,21 @@ const updateCandidateControllers = require("../controllers/Candidate/updateCandi
 const deleteCandidateControllers = require("../controllers/Candidate/deleteCandidateControllers");
 const employeeUpdateControllers = require("../controllers/Employee/employeeUpdateControllers");
 const deleteEmployeeControllers = require("../controllers/Employee/deleteEmployeeControllers");
+const testingCandidateControllers = require("../controllers/Testing/testingCandidateControllers");
+const testingEmployeeControllers = require("../controllers/Testing/testingEmployeeControllers");
+const attendenceControllers = require("../controllers/Employee/attendenceControllers");
+const updateAttendenceControllers = require("../controllers/Employee/updateAttendenceControllers");
 const router = express.Router();
 
 // Employee Routes
 router.post("/employee", secureApi, employeeControllers);
 router.get("/employee/all", secureApi, allEmployeeControllers);
 router.get("/employee/:id", secureApi, singleEmployeeControllers);
-router.put("/employee/update/:id", employeeUpdateControllers);
+router.put("/employee/update/:id",secureApi, employeeUpdateControllers);
 router.delete("/employee/delete/:id", secureApi, deleteEmployeeControllers);
+// @Employee-Attendence
+router.post('/employee/attendence',secureApi,attendenceControllers) // @adding attendence
+router.put('/employee/attendence/update',secureApi,updateAttendenceControllers) // @updating attendence
 
 // Candidate Routes
 router.post("/candidate", secureApi, candidateControllers);
@@ -25,5 +32,9 @@ router.get("/candidate/all", secureApi, allCandidateControllers);
 router.get("/candidate/:id", secureApi, singleCandidateControllers);
 router.put("/candidate/update/:id", secureApi, updateCandidateControllers);
 router.delete("/candidate/delete/:id", secureApi, deleteCandidateControllers);
+
+// Testing Admin Routes
+router.get("/testing/candidate",secureApi,testingCandidateControllers)
+router.get('/testing/employee',secureApi,testingEmployeeControllers)
 
 module.exports = router;

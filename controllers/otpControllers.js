@@ -1,4 +1,4 @@
-const Register = require("../model/Schema/register");
+const Register = require("../model/Schema/admin");
 const Otp = require('../model/Schema/otp')
 const nodemailer = require('nodemailer')
 

@@ -1,5 +1,5 @@
 const Otp = require("../model/Schema/otp");
-const Register = require("../model/Schema/register");
+const Register = require("../model/Schema/admin");
 const bcrypt = require('bcryptjs')
 
 const resetPassword = async (req,res)=>{

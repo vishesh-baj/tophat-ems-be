@@ -1,6 +1,13 @@
 const Candidate = require("../../model/Schema/candidate");
+const jwt = require('jsonwebtoken')
 
 const candidateControllers = async (req,res)=>{
+    const token = req.headers.authorization.split(' ')[1]
+    const verifyJwt = jwt.verify(token,process.env.SECRET_KEY)
+
+    // Getting admin id through the token
+    const adminId = verifyJwt.userId;
+
     const {name,email,contactNumber,technology,yearOfExperience,noticePeriod,communication,status,interviewerName,note} = req.body;
 
     if(!name || !email || !contactNumber || !technology){
@@ -36,7 +43,7 @@ const candidateControllers = async (req,res)=>{
         })
     }
 
-    const saveCandidate = new Candidate({name,email,contactNumber,technology,yearOfExperience,noticePeriod,communication,status,interviewerName,note})
+    const saveCandidate = new Candidate({adminId,name,email,contactNumber,technology,yearOfExperience,noticePeriod,communication,status,interviewerName,note})
     saveCandidate.save()
 
     return res.status(200).json({
