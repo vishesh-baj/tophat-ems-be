@@ -14,6 +14,8 @@ const testingCandidateControllers = require("../controllers/Testing/testingCandi
 const testingEmployeeControllers = require("../controllers/Testing/testingEmployeeControllers");
 const attendenceControllers = require("../controllers/Employee/attendenceControllers");
 const updateAttendenceControllers = require("../controllers/Employee/updateAttendenceControllers");
+const getAllAttendenceControllers = require("../controllers/Employee/getAllAttendenceControllers");
+const getSingleEmpAttendenceControllers = require("../controllers/Employee/getSingleEmpAttendenceControllers");
 const router = express.Router();
 
 // Employee Routes
@@ -23,6 +25,8 @@ router.get("/employee/:id", secureApi, singleEmployeeControllers);
 router.put("/employee/update/:id",secureApi, employeeUpdateControllers);
 router.delete("/employee/delete/:id", secureApi, deleteEmployeeControllers);
 // @Employee-Attendence
+router.get('/employee/attendence/all',secureApi,getAllAttendenceControllers) // @all users attendence
+router.get('/employee/attendence/singleEmployee',secureApi,getSingleEmpAttendenceControllers)  // @get single employee attendence record
 router.post('/employee/attendence',secureApi,attendenceControllers) // @adding attendence
 router.put('/employee/attendence/update',secureApi,updateAttendenceControllers) // @updating attendence
 
