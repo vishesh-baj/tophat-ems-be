@@ -27,7 +27,7 @@ const updateCandidateControllers = (req, res) => {
         });
       } else {
         res.status(200).json({
-          message: "Candidate Saved Successfully",
+          message: "Candidate Updated Successfully",
           result,
         });
       }
