@@ -23,7 +23,7 @@ router.get("/employee/:id", secureApi, singleEmployeeControllers);
 router.put("/employee/update/:id", secureApi, employeeUpdateControllers);
 router.delete("/employee/delete/:id", secureApi, deleteEmployeeControllers);
 router.post("/employee/attendence", secureApi, employeeAttendenceControllers);
-router.get("/employee/attendence/all", allAttendenceControllers);
+router.get("/employee/attendence/all", secureApi, allAttendenceControllers);
 
 // Candidate Routes
 router.post("/candidate", secureApi, candidateControllers);
