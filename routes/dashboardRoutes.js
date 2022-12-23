@@ -13,6 +13,7 @@ const deleteEmployeeControllers = require("../controllers/Employee/deleteEmploye
 const testingCandidateControllers = require("../controllers/Testing/testingCandidateControllers");
 const testingEmployeeControllers = require("../controllers/Testing/testingEmployeeControllers");
 const employeeAttendenceControllers = require("../controllers/Employee/employeeAttendenceControllers");
+const allAttendenceControllers = require("../controllers/Employee/allAttendenceControllers");
 const router = express.Router();
 
 // Employee Routes
@@ -22,6 +23,8 @@ router.get("/employee/:id", secureApi, singleEmployeeControllers);
 router.put("/employee/update/:id", secureApi, employeeUpdateControllers);
 router.delete("/employee/delete/:id", secureApi, deleteEmployeeControllers);
 router.post("/employee/attendence", secureApi, employeeAttendenceControllers);
+router.get("/employee/attendence/all", allAttendenceControllers);
+
 // Candidate Routes
 router.post("/candidate", secureApi, candidateControllers);
 router.get("/candidate/all", secureApi, allCandidateControllers);
